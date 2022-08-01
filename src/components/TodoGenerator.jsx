@@ -1,6 +1,6 @@
 import "../css/TodoGenerator.css";
 function TodoGenerator(props){
-  const {updateTodoItemList,} = props;
+  const {updateTodoItemList} = props;
   const addTodoList = function(){
     const value = document.getElementById("inputText").value;
     if(value !== ""){

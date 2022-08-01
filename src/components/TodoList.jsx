@@ -5,7 +5,7 @@ import {useState} from "react"
 function TodoList(){
   let [todoItemList, setTodoItemList] = useState([]);
   const updateTodoItemList = function(todo){
-    setTodoItemList([...todoItemList,todo])
+    setTodoItemList([...todoItemList,todo]);
   }
   const deleteTodoItem = function(index){
     todoItemList.splice(index,1);
