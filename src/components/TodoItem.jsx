@@ -1,8 +1,9 @@
 import "../css/TodoItem.css"
-function TodoItem(){
+function TodoItem(props){
+  const {todo} = props;
   return(
     <div className="todoItem">
-      <input type="text"/>
+      <input type="text" value={todo} readOnly/>
     </div>
   )
 }
