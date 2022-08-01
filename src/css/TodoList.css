@@ -1,0 +1,9 @@
+.todoListBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  height: 500px;
+  background-color: red;
+  box-sizing: border-box;
+}
