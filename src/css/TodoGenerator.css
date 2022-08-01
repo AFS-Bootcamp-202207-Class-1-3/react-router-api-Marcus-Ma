@@ -1,0 +1,15 @@
+.todoGeneratorBox{
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+.inputText{
+  width: 300px;
+}
+.addButton{
+  margin-left: 5px;
+  color: white;
+  background-color: rgb(65, 145, 245);
+  border: none;
+}
+
