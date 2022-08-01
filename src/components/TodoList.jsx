@@ -5,13 +5,17 @@ import {useState} from "react"
 function TodoList(){
   let [todoItemList, setTodoItemList] = useState([]);
   const updateTodoItemList = function(todo){
-    setTodoItemList([...todo]);
+    setTodoItemList([...todoItemList,todo])
+  }
+  const deleteTodoItem = function(index){
+    todoItemList.splice(index,1);
+    setTodoItemList([...todoItemList]);
   }
   return(
     <div className="todoListBox">
       <h1>Todo List</h1>
-      <TodoGroup todoItemList={todoItemList} updateTodoItemList={updateTodoItemList}/>
-      <TodoGenerator todoItemList={todoItemList} updateTodoItemList={updateTodoItemList} />
+      <TodoGroup todoItemList={todoItemList} deleteTodoItem={deleteTodoItem}/>
+      <TodoGenerator updateTodoItemList={updateTodoItemList} />
     </div>
   );
 }

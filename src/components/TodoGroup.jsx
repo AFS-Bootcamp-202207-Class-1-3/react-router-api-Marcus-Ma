@@ -1,14 +1,13 @@
 import "../css/TodoGroup.css"
 import TodoItem from "./TodoItem";
 function TodoGroup(props){
-  const {updateTodoItemList,todoItemList} = props;
+  const {deleteTodoItem,todoItemList} = props;
   const todoItems = todoItemList
-  .map((value,index) => (<TodoItem 
-    todoItemList={todoItemList} 
+  .map((value,index) => (<TodoItem  
     key={index}
     index={index} 
     todo={value} 
-    updateTodoItemList={updateTodoItemList}
+    deleteTodoItem={deleteTodoItem}
     />))
   return(
     <div className="todoGroup-box">

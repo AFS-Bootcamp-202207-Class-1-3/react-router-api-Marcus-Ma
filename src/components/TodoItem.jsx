@@ -1,10 +1,8 @@
 import "../css/TodoItem.css"
 function TodoItem(props){
-  const {todoItemList,updateTodoItemList,index,todo} = props;
+  const {deleteTodoItem,index,todo} = props;
   const deleteTodo = function(){
-    let todolist = [...todoItemList];
-    todolist.splice(index,1);
-    updateTodoItemList(todolist);
+    deleteTodoItem(index);
   }
   return(
     <div className="todoItem">
