@@ -10,7 +10,7 @@ function TodoList(){
   return(
     <div className="todoListBox">
       <h1>Todo List</h1>
-      <TodoGroup todoItemList={todoItemList}/>
+      <TodoGroup todoItemList={todoItemList} updateTodoItemList={updateTodoItemList}/>
       <TodoGenerator todoItemList={todoItemList} updateTodoItemList={updateTodoItemList} />
     </div>
   );

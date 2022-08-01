@@ -1,8 +1,15 @@
 import "../css/TodoGroup.css"
 import TodoItem from "./TodoItem";
 function TodoGroup(props){
-  const {todoItemList} = props;
-  const todoItems = todoItemList.map((value,index) => (<TodoItem key={index} todo={value}/>))
+  const {updateTodoItemList,todoItemList} = props;
+  const todoItems = todoItemList
+  .map((value,index) => (<TodoItem 
+    todoItemList={todoItemList} 
+    key={index}
+    index={index} 
+    todo={value} 
+    updateTodoItemList={updateTodoItemList}
+    />))
   return(
     <div className="todoGroup-box">
       {todoItems}
