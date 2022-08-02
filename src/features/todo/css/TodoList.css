@@ -4,6 +4,10 @@
   align-items: center;
   width: 50vw;
   height: 500px;
+  background-color: #218968;
   border: 1px solid black;
   box-sizing: border-box;
+}
+.todo-list-box h1{
+  color: white;
 }

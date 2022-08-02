@@ -1,22 +1,28 @@
 import "../css/TodoGenerator.css";
-import {useState} from "react";
-function TodoGenerator(props) {
-  const { updateTodoItemList } = props;
-  const [inputValue, setInputValue] = useState('');
-  const addTodoList = function() {
-    if(inputValue!==""){
-      updateTodoItemList(inputValue);
-      document.getElementById("input-text").value = ""
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addTodoItem } from "../todoSlice";
+function TodoGenerator() {
+  const dispatch = useDispatch();
+  const [inputValue, setInputValue] = useState("");
+  const addTodo = function() {
+    if (inputValue !== "") {
+      const todo = {
+        context: inputValue,
+        done: false
+      };
+      dispatch(addTodoItem(todo));
+      document.getElementById("input-text").value = "";
     }
   };
-  const handleChange = function(event){
+  const handleChange = function(event) {
     const value = event.target.value;
-    setInputValue(value)
-  }
+    setInputValue(value);
+  };
   return (
     <div className="todo-generator-box">
       <input type="text" id="input-text" onChange={handleChange} />
-      <button className="add-button" onClick={addTodoList}>
+      <button className="add-button" onClick={addTodo}>
         add
       </button>
     </div>

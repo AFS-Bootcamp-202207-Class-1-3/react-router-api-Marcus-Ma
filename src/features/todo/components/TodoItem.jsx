@@ -1,16 +1,23 @@
-import "../css/TodoItem.css"
+import "../css/TodoItem.css";
 import { useDispatch } from "react-redux";
-import { deleteTodoItem } from "../todoSlice";
-function TodoItem(props){
-  const {index,todo} = props;
+import { deleteTodoItem, changeDoneState } from "../todoSlice";
+function TodoItem(props) {
+  const { index, todo, done } = props;
   const dispatch = useDispatch();
-  const deleteTodo = function(){
+  const deleteTodo = function() {
     dispatch(deleteTodoItem(index));
-  }
-  return(
-    <div className="todo-item">
-      <input type="text" value={todo} readOnly/><button className="delete-button"  onClick={deleteTodo}>delete</button>
-    </div>
-  )
+  };
+  const changeDone = function(event) {
+    dispatch(changeDoneState(index));
+    event.target.style.textDecoration = done ? "none" : "line-through";
+  };
+  return (
+      <li className="todo-li" >
+        <span onClick={changeDone}>{todo}</span>
+        <button type="button" className="delete-button" onClick={deleteTodo}>
+          x
+        </button>
+      </li>
+  );
 }
 export default TodoItem;
