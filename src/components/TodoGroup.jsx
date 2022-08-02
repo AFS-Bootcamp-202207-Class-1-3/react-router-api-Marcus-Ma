@@ -4,7 +4,7 @@ function TodoGroup(props){
   const {deleteTodoItem,todoItemList} = props;
   const todoItems = todoItemList
                     .map((value,index) => (<TodoItem  
-                      key={index}
+                      key={value}
                       index={index} 
                       todo={value} 
                       deleteTodoItem={deleteTodoItem}
