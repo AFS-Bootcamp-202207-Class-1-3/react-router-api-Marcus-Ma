@@ -10,7 +10,7 @@ function TodoGroup(props){
                       deleteTodoItem={deleteTodoItem}
                       />))
   return(
-    <div className="todoGroup-box">
+    <div className="todo-group-box">
       {todoItems}
     </div>
   )

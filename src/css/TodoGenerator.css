@@ -1,12 +1,12 @@
-.todoGeneratorBox{
+.todo-generator-box{
   display: flex;
   justify-content: center;
   margin-top: 15px;
 }
-#inputText{
+#input-text{
   width: 300px;
 }
-.addButton{
+.add-button{
   margin-left: 5px;
   color: white;
   background-color: rgb(65, 145, 245);

@@ -1,17 +1,20 @@
 import "../css/TodoGenerator.css";
-function TodoGenerator(props){
-  const {updateTodoItemList} = props;
-  const addTodoList = function(){
-    const value = document.getElementById("inputText").value;
-    if(value !== ""){
+function TodoGenerator(props) {
+  const { updateTodoItemList } = props;
+  const addTodoList = function() {
+    const value = document.getElementById("input-text").value;
+    if (value !== "") {
       updateTodoItemList(value);
-      document.getElementById("inputText").value="";
+      document.getElementById("input-text").value = "";
     }
-  }
-  return(
-    <div className="todoGeneratorBox">
-      <input type="text" id="inputText" /><button className="addButton" onClick={addTodoList}>add</button>
+  };
+  return (
+    <div className="todo-generator-box">
+      <input type="text" id="input-text" />
+      <button className="add-button" onClick={addTodoList}>
+        add
+      </button>
     </div>
-  )
+  );
 }
 export default TodoGenerator;

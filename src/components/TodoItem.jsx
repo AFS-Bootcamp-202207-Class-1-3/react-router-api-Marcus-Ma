@@ -5,7 +5,7 @@ function TodoItem(props){
     deleteTodoItem(index);
   }
   return(
-    <div className="todoItem">
+    <div className="todo-item">
       <input type="text" value={todo} readOnly/><button onClick={deleteTodo}>delete</button>
     </div>
   )

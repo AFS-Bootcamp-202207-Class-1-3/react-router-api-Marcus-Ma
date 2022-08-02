@@ -1,4 +1,4 @@
-.todoItem{
+.todo-item{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,6 +6,6 @@
   margin-top: 5px;
   background-color: red;
 }
-.todoItem input{
+.todo-item input{
   width: 100%;
 }
