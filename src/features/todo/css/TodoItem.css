@@ -1,11 +1,16 @@
-.todo-item{
+.todo-item {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 80%;
   margin-top: 5px;
-  background-color: red;
 }
-.todo-item input{
+.todo-item input {
   width: 100%;
+}
+.delete-button {
+  margin-left: 10px;
+  color: white;
+  border: none;
+  background-color: red;
 }

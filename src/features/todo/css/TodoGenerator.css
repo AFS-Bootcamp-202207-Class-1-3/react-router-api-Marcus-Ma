@@ -1,15 +1,14 @@
-.todo-generator-box{
+.todo-generator-box {
   display: flex;
   justify-content: center;
   margin-top: 15px;
 }
-#input-text{
+#input-text {
   width: 300px;
 }
-.add-button{
+.add-button {
   margin-left: 5px;
   color: white;
   background-color: rgb(65, 145, 245);
   border: none;
 }
-
