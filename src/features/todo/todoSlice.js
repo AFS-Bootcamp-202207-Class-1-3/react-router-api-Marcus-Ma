@@ -13,8 +13,10 @@ const todoSlice = createSlice({
     name:"todo",
     initialState,
     reducers:{
-
+        deleteTodoItem(state,actions){
+            state.todos.splice(actions.payload,1);
+        }
     }
 })
-// export {xxx} from todoSlice.actions;
+export const {deleteTodoItem} = todoSlice.actions;
 export default todoSlice.reducer;

@@ -1,8 +1,11 @@
 import "../css/TodoItem.css"
+import { useDispatch } from "react-redux";
+import { deleteTodoItem } from "../todoSlice";
 function TodoItem(props){
-  const {deleteTodoItem,index,todo} = props;
+  const {index,todo} = props;
+  const dispatch = useDispatch();
   const deleteTodo = function(){
-    deleteTodoItem(index);
+    dispatch(deleteTodoItem(index));
   }
   return(
     <div className="todo-item">

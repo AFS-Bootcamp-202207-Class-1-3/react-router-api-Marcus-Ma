@@ -1,17 +1,17 @@
 import "../css/TodoGroup.css"
 import TodoItem from "./TodoItem";
-function TodoGroup(props){
-  const {deleteTodoItem,todoItemList} = props;
-  const todoItems = todoItemList
-                    .map((value,index) => (<TodoItem  
-                      key={value}
-                      index={index} 
-                      todo={value} 
-                      deleteTodoItem={deleteTodoItem}
-                      />))
+import {useSelector} from 'react-redux'
+function TodoGroup(){
+  const todos = useSelector(state => state.todo.todos);
+  const todoList = todos.map((todo,index) => <TodoItem  
+      key={todo.id}
+      index={index} 
+      todo={todo.context} 
+  />);
+
   return(
     <div className="todo-group-box">
-      {todoItems}
+      {todoList}
     </div>
   )
 }
