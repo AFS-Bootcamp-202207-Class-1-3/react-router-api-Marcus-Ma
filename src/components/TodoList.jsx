@@ -8,7 +8,10 @@ function TodoList(){
     setTodoItemList([...todoItemList,todo]);
   }
   const deleteTodoItem = function(index){
-    todoItemList.splice(index,1);
+    // 不建议直接修改
+    // todoItemList.splice(index,1);
+    const newArr = [...todoItemList];
+    newArr.splice(index,1);
     setTodoItemList([...todoItemList]);
   }
   return(
