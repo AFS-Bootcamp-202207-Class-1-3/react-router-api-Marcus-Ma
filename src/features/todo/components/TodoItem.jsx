@@ -7,13 +7,12 @@ function TodoItem(props) {
   const deleteTodo = function() {
     dispatch(deleteTodoItem(index));
   };
-  const changeDone = function(event) {
+  const changeDone = function() {
     dispatch(changeDoneState(index));
-    event.target.style.textDecoration = done ? "none" : "line-through";
   };
   return (
       <li className="todo-li" >
-        <span onClick={changeDone}>{todo}</span>
+        <span className={done ? "line-through-text":"none-text"} onClick={changeDone} >{todo}</span>
         <button type="button" className="delete-button" onClick={deleteTodo}>
           x
         </button>

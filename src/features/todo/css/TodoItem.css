@@ -17,6 +17,12 @@
   color: white;
   border: 1px solid white;
 }
-.todo-li span{
+.todo-li span {
   cursor: pointer;
+}
+.line-through-text {
+  text-decoration: line-through;
+}
+.none-text {
+  text-decoration: none;
 }
