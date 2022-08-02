@@ -1,0 +1,8 @@
+.todo-group-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40vw;
+  height: 300px;
+  background-color: blue;
+}

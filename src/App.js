@@ -1,5 +1,5 @@
 import './App.css';
-import TodoList from "./components/TodoList.jsx"
+import TodoList from "./features/todo/components/TodoList"
 function App() {
   return (
     <div className="App">
