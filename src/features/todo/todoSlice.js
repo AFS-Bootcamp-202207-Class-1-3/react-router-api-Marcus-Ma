@@ -14,7 +14,10 @@ const todoSlice = createSlice({
   initialState,
   reducers: {
     deleteTodoItem(state, actions) {
-      state.todos.splice(actions.payload, 1);
+      const todoIndex = state.todos.findIndex(
+        todo => todo.id === actions.payload
+      );
+      state.todos.splice(todoIndex, 1);
     },
     addTodoItem(state, actions) {
       state.todos.push({
@@ -22,10 +25,17 @@ const todoSlice = createSlice({
         ...actions.payload
       });
     },
-    changeDoneState(state,actions){
-      state.todos[actions.payload].done = !state.todos[actions.payload].done;
+    changeDoneState(state, actions) {
+      const todoIndex = state.todos.findIndex(
+        todo => todo.id === actions.payload
+      );
+      state.todos[todoIndex].done = !state.todos[todoIndex].done;
     }
   }
 });
-export const { deleteTodoItem, addTodoItem,changeDoneState } = todoSlice.actions;
+export const {
+  deleteTodoItem,
+  addTodoItem,
+  changeDoneState
+} = todoSlice.actions;
 export default todoSlice.reducer;
