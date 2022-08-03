@@ -3,14 +3,12 @@ import TodoItem from "./TodoItem";
 import { useSelector } from "react-redux";
 function TodoGroup() {
   const todos = useSelector(state => state.todo.todos);
-  const noDoneTodo = todos.filter(todo => todo.done === false);
-  const todoList = noDoneTodo.map((todo, index) => (
-    <TodoItem key={todo.id} todo={todo} />
+  const noDoneTodos = todos.filter(todo => todo.done === false).map((nodoneTodo, index) => (
+    <TodoItem key={nodoneTodo.id} todo={nodoneTodo} />
   ));
-
   return (
     <div className="todo-group-box">
-      <ul>{todoList}</ul>
+      <ul>{noDoneTodos}</ul>
     </div>
   );
 }
