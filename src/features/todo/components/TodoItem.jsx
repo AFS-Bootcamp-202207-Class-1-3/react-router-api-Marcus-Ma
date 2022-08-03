@@ -1,7 +1,7 @@
 import "../css/TodoItem.css";
 import { useDispatch } from "react-redux";
 import { deleteTodoItem, changeDoneState } from "../todoSlice";
-import { deleteTodoById } from "../../apis/todoApi";
+import { deleteTodoById, changeTodoDone } from "../../apis/todoApi";
 function TodoItem(props) {
   const { todo } = props;
   const dispatch = useDispatch();
@@ -11,7 +11,10 @@ function TodoItem(props) {
     })
   };
   const changeDone = function() {
-    dispatch(changeDoneState(todo.id));
+    const done = !todo.done;
+    changeTodoDone(todo.id,{done}).then(response =>{
+      dispatch(changeDoneState(response.data.id));
+    })
   };
   return (
       <li className="todo-li" >
