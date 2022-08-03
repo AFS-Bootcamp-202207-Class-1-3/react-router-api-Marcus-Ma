@@ -29,7 +29,6 @@ const todoSlice = createSlice({
       state.todos = actions.payload;
     },
     updateTodoContext(state,actions){
-      console.log(actions.payload);
       const {context,id} = actions.payload;
       const todoIndex = state.todos.findIndex(
         todo => todo.id === id

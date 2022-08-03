@@ -4,7 +4,7 @@ import { EditFilled,DeleteFilled } from '@ant-design/icons';
 import { useState } from "react"
 import { useDispatch } from "react-redux";
 import { deleteTodoItem, changeDoneState,updateTodoContext } from "../todoSlice";
-import { deleteTodoById, changeTodoDone } from "../../apis/todoApi";
+import { deleteTodoById, changeTodoDone,changeTodoContext } from "../../apis/todoApi";
 function TodoItem(props) {
   const { todo } = props;
   const dispatch = useDispatch();
@@ -14,8 +14,10 @@ function TodoItem(props) {
     setIsModalVisible(true);
   };
   const handleOk = () => {
-    dispatch(updateTodoContext({"context":updateValue,"id":todo.id}));
-    setIsModalVisible(false);
+    changeTodoContext(todo.id,{"context":updateValue}).then(response=>{
+      dispatch(updateTodoContext({"context":updateValue,"id":todo.id}));
+      setIsModalVisible(false);
+    })
   };
   const handleCancel = () => {
     setIsModalVisible(false);
