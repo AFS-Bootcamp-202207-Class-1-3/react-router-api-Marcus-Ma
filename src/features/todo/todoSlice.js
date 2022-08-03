@@ -1,12 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { v4 as uuidv4 } from "uuid";
 const initialState = {
   todos: [
-    {
-      id: uuidv4(),
-      context: "learn redux",
-      done: false
-    }
+    
   ]
 };
 const todoSlice = createSlice({
@@ -21,7 +16,6 @@ const todoSlice = createSlice({
     },
     addTodoItem(state, actions) {
       state.todos.push({
-        id: uuidv4(),
         ...actions.payload
       });
     },

@@ -7,11 +7,12 @@ import { setTodoList } from "../todoSlice"
 function TodoGroup() {
   const todos = useSelector(state => state.todo.todos);
   const dispatch = useDispatch();
+  // [dispatch] 解决依赖
   useEffect(() => {
     getTodos().then(response => {
       dispatch(setTodoList(response.data));
-    });
-  }, []);
+    })
+  }, [dispatch]);
   const noDoneTodos = todos
     .filter(todo => todo.done === false)
     .map(nodoneTodo => <TodoItem key={nodoneTodo.id} todo={nodoneTodo} />);

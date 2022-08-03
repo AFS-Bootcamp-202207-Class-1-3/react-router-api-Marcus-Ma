@@ -2,16 +2,15 @@ import "../css/TodoGenerator.css";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodoItem } from "../todoSlice";
+import {saveTodo} from "../../apis/todoApi.js";
 function TodoGenerator() {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState("");
   const addTodo = function() {
     if (inputValue !== "") {
-      const todo = {
-        context: inputValue,
-        done: false
-      };
-      dispatch(addTodoItem(todo));
+      saveTodo({context:inputValue}).then(response =>{
+        dispatch(addTodoItem(response.data));
+      })
       document.getElementById("input-text").value = "";
     }
   };

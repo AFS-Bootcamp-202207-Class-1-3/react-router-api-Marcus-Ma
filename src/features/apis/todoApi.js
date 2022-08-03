@@ -8,6 +8,6 @@ export const getTodoById = (id)=> {
 export const deleteTodoById = (id)=> {
     return api.delete(`/todos/{id}`)
 }
-export const saveTodo = (todo)=>{
-    return api.post({todo})
+export const saveTodo = (text)=>{
+    return api.post("/todos",text)
 }
