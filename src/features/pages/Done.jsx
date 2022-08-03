@@ -3,7 +3,7 @@ import TodoItem from "../todo/components/TodoItem";
 import "./css/Done.css";
 function Done() {
   const todos = useSelector(state => state.todo.todos);
-  const doneTodos = todos.filter(todo => todo.done === true).map((doneTodo, index) => (
+  const doneTodos = todos.filter(todo => todo.done === true).map((doneTodo) => (
     <TodoItem key={doneTodo.id} todo={doneTodo} />
   ));
   return (

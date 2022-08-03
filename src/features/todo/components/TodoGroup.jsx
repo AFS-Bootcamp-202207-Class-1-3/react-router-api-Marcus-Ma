@@ -3,7 +3,7 @@ import TodoItem from "./TodoItem";
 import { useSelector } from "react-redux";
 function TodoGroup() {
   const todos = useSelector(state => state.todo.todos);
-  const noDoneTodos = todos.filter(todo => todo.done === false).map((nodoneTodo, index) => (
+  const noDoneTodos = todos.filter(todo => todo.done === false).map((nodoneTodo) => (
     <TodoItem key={nodoneTodo.id} todo={nodoneTodo} />
   ));
   return (
