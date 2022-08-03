@@ -8,8 +8,10 @@ function Layout() {
         {/* 切换路由 */}
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
+        <Link to="/done">Done</Link>
       </nav>
       <div className="content">
+          {/* 内容切换区域 */}
         <Outlet />
       </div>
     </div>

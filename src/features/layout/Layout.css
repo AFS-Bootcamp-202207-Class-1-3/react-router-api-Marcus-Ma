@@ -2,9 +2,33 @@
   margin: 0;
   padding: 0;
 }
+a {
+  color: black;
+}
+a:hover {
+  color: blue;
+}
+a:visited {
+  color: black;
+}
 
 .layout {
   width: 100vw;
   height: 100vh;
-  background-color: rgb(244, 244, 244)
+  background-color: rgb(244, 244, 244);
+}
+.layout h1 {
+  text-align: center;
+}
+.layout nav {
+  text-align: center;
+}
+.layout nav a {
+  text-decoration: none;
+  margin-left: 10px;
+}
+.layout .content {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
 }
