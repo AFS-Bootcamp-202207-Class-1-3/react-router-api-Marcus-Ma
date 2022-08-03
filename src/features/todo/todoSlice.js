@@ -30,12 +30,16 @@ const todoSlice = createSlice({
         todo => todo.id === actions.payload
       );
       state.todos[todoIndex].done = !state.todos[todoIndex].done;
+    },
+    setTodoList(state,actions){
+      state.todos = actions.payload;
     }
   }
 });
 export const {
   deleteTodoItem,
   addTodoItem,
-  changeDoneState
+  changeDoneState,
+  setTodoList
 } = todoSlice.actions;
 export default todoSlice.reducer;
