@@ -1,15 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 import store from "./app/store";
-import {Provider} from "react-redux"
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import { Provider } from "react-redux";
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
+    {/* 严格模式导致useEffect执行两次 */}
     {/* <React.StrictMode> */}
-      <App />
+    <App />
     {/* </React.StrictMode> */}
   </Provider>
 );
