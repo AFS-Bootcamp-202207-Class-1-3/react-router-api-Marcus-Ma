@@ -1,4 +1,6 @@
 import "../css/TodoItem.css";
+import { Button } from 'antd';
+import { EditFilled,DeleteFilled } from '@ant-design/icons';
 import { useDispatch } from "react-redux";
 import { deleteTodoItem, changeDoneState } from "../todoSlice";
 import { deleteTodoById, changeTodoDone } from "../../apis/todoApi";
@@ -17,14 +19,15 @@ function TodoItem(props) {
     })
   };
   return (
-      <li className="todo-li" >
+      <div className="todo-li" >
         <span className={todo.done ? "line-through-text":"none-text"} onClick={changeDone} >
           {todo.context}
         </span>
-        <button type="button" className="delete-button" onClick={deleteTodo}>
-          &times;
-        </button>
-      </li>
+        <div className="button-group">
+          <Button type="primary" icon={<EditFilled />} ghost/>
+          <Button type="primary" icon={<DeleteFilled />} danger ghost  onClick={deleteTodo}/>
+        </div>
+      </div>
   );
 }
 export default TodoItem;

@@ -3,7 +3,8 @@ import TodoItem from "./TodoItem";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getTodos } from "../../apis/todoApi.js";
-import { setTodoList } from "../todoSlice"
+import { setTodoList } from "../todoSlice";
+import { List } from 'antd';
 function TodoGroup() {
   const todos = useSelector(state => state.todo.todos);
   const dispatch = useDispatch();
@@ -14,11 +15,18 @@ function TodoGroup() {
     })
   }, [dispatch]);
   const noDoneTodos = todos
-    .filter(todo => todo.done === false)
-    .map(nodoneTodo => <TodoItem key={nodoneTodo.id} todo={nodoneTodo} />);
+    .filter(todo => todo.done === false);
   return (
     <div className="todo-group-box">
-      <ul>{noDoneTodos}</ul>
+       <List
+          bordered
+          dataSource={noDoneTodos}
+          renderItem={item => (
+            <List.Item>
+              <TodoItem key={item.id} todo={item} />
+            </List.Item>
+          )}
+        />
     </div>
   );
 }

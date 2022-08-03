@@ -1,14 +1,11 @@
 .todo-generator-box {
   display: flex;
+  width: 50%;
+  min-width: 500px;
   justify-content: center;
   margin-top: 15px;
 }
-#input-text {
-  width: 300px;
-}
-.add-button {
-  margin-left: 5px;
-  color: white;
-  background-color: rgb(65, 145, 245);
-  border: none;
+.todo-generator-box .ant-input-group.ant-input-group-compact{
+  display: flex;
+  justify-content: center;
 }

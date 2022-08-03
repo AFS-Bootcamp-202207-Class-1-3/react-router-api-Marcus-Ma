@@ -22,7 +22,7 @@ function TodoGenerator() {
   return (
     <div className="todo-generator-box">
       <Input.Group compact>
-        <Input id="input-text" value={inputValue} onChange={handleChange} />
+        <Input style={{ width: '300px' }} value={inputValue} onChange={handleChange} />
         <Button type="primary" onClick={addTodo}>
           Submit
         </Button>
