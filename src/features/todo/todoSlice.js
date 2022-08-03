@@ -27,13 +27,22 @@ const todoSlice = createSlice({
     },
     setTodoList(state,actions){
       state.todos = actions.payload;
-    }
+    },
+    updateTodoContext(state,actions){
+      console.log(actions.payload);
+      const {context,id} = actions.payload;
+      const todoIndex = state.todos.findIndex(
+        todo => todo.id === id
+      );
+      state.todos[todoIndex].context = context;
+    },
   }
 });
 export const {
   deleteTodoItem,
   addTodoItem,
   changeDoneState,
-  setTodoList
+  setTodoList,
+  updateTodoContext
 } = todoSlice.actions;
 export default todoSlice.reducer;

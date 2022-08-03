@@ -1,12 +1,28 @@
 import "../css/TodoItem.css";
-import { Button } from 'antd';
+import { Button,Modal } from 'antd';
 import { EditFilled,DeleteFilled } from '@ant-design/icons';
+import { useState } from "react"
 import { useDispatch } from "react-redux";
-import { deleteTodoItem, changeDoneState } from "../todoSlice";
+import { deleteTodoItem, changeDoneState,updateTodoContext } from "../todoSlice";
 import { deleteTodoById, changeTodoDone } from "../../apis/todoApi";
 function TodoItem(props) {
   const { todo } = props;
   const dispatch = useDispatch();
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [updateValue, setUpdateValue] = useState(todo.context);
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+  const handleOk = () => {
+    dispatch(updateTodoContext({"context":updateValue,"id":todo.id}));
+    setIsModalVisible(false);
+  };
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+  const handleUpdateValue = (event) =>{
+    setUpdateValue(event.target.value);
+  };
   const deleteTodo = function() {
     deleteTodoById(todo.id).then(response=>{
       dispatch(deleteTodoItem(response.data.id));
@@ -24,9 +40,12 @@ function TodoItem(props) {
           {todo.context}
         </span>
         <div className="button-group">
-          <Button type="primary" icon={<EditFilled />} ghost/>
+          <Button type="primary" icon={<EditFilled />} onClick={showModal} ghost/>
           <Button type="primary" icon={<DeleteFilled />} danger ghost  onClick={deleteTodo}/>
         </div>
+        <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+          <textarea value={updateValue} cols="25" rows="5" className="my-text" onChange={handleUpdateValue}>{updateValue}</textarea>
+        </Modal>
       </div>
   );
 }
