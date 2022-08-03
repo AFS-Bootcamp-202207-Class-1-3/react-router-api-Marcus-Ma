@@ -14,7 +14,7 @@ function TodoItem(props) {
       <li className="todo-li" >
         <span className={done ? "line-through-text":"none-text"} onClick={changeDone} >{todo}</span>
         <button type="button" className="delete-button" onClick={deleteTodo}>
-          x
+          &times;
         </button>
       </li>
   );
