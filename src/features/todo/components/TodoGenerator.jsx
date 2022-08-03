@@ -2,16 +2,17 @@ import "../css/TodoGenerator.css";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodoItem } from "../todoSlice";
-import {saveTodo} from "../../apis/todoApi.js";
+import { saveTodo } from "../../apis/todoApi.js";
+import { Button, Input } from "antd";
 function TodoGenerator() {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState("");
   const addTodo = function() {
     if (inputValue !== "") {
-      saveTodo({context:inputValue}).then(response =>{
+      saveTodo({ context: inputValue }).then(response => {
         dispatch(addTodoItem(response.data));
-      })
-      document.getElementById("input-text").value = "";
+      });
+      setInputValue(" ");
     }
   };
   const handleChange = function(event) {
@@ -20,10 +21,12 @@ function TodoGenerator() {
   };
   return (
     <div className="todo-generator-box">
-      <input type="text" id="input-text" onChange={handleChange} />
-      <button className="add-button" onClick={addTodo}>
-        add
-      </button>
+      <Input.Group compact>
+        <Input id="input-text" value={inputValue} onChange={handleChange} />
+        <Button type="primary" onClick={addTodo}>
+          Submit
+        </Button>
+      </Input.Group>
     </div>
   );
 }
