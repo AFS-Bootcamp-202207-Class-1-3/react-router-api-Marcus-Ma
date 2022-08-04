@@ -46,7 +46,7 @@ function TodoItem(props) {
   };
   const deleteTodo = function() {
     deleteTodoById(todo.id).then(response => {
-      dispatch(deleteTodoItem(response.data.id));
+      dispatch(deleteTodoItem(todo.id));
       success("删除成功！");
     });
   };
@@ -81,7 +81,6 @@ function TodoItem(props) {
         />
       </div>
       {/* 往上提一层 */}
-
       <Modal
         title="Update Context"
         visible={isModalVisible}
@@ -98,7 +97,6 @@ function TodoItem(props) {
           {updateValue}
         </textarea>
       </Modal>
-
     </div>
   );
 }
