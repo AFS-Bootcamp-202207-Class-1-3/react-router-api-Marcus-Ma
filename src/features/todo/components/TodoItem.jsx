@@ -16,13 +16,14 @@ import {
 function TodoItem(props) {
   const { todo } = props;
   const dispatch = useDispatch();
+  const errorMessage = "修改内容不能为空!";
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [updateValue, setUpdateValue] = useState(todo.context);
   const showModal = () => {
     setIsModalVisible(true);
   };
   const error = () => {
-    message.error("修改内容不能为空！");
+    message.error(errorMessage);
   };
   const handleOk = () => {
     if (updateValue === "") {

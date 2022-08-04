@@ -7,8 +7,9 @@ import { Button, Input, message } from "antd";
 function TodoGenerator() {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState("");
+  const errorMessage = "新增Todo内容不能为空!";
   const error = () => {
-    message.error("新增Todo内容不能为空！");
+    message.error(errorMessage);
   };
   const addTodo = function() {
     if (inputValue !== "") {
