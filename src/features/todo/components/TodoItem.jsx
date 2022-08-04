@@ -25,6 +25,9 @@ function TodoItem(props) {
   const error = () => {
     message.error(errorMessage);
   };
+  const success = (successMsg) => {
+    message.success(successMsg);
+  };
   const handleOk = () => {
     if (updateValue === "") {
       error();
@@ -44,6 +47,7 @@ function TodoItem(props) {
   const deleteTodo = function() {
     deleteTodoById(todo.id).then(response => {
       dispatch(deleteTodoItem(response.data.id));
+      success("删除成功！");
     });
   };
   const changeDone = function() {
@@ -77,8 +81,9 @@ function TodoItem(props) {
         />
       </div>
       {/* 往上提一层 */}
+
       <Modal
-        title="Basic Modal"
+        title="Update Context"
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
@@ -93,6 +98,7 @@ function TodoItem(props) {
           {updateValue}
         </textarea>
       </Modal>
+
     </div>
   );
 }

@@ -11,12 +11,16 @@ function TodoGenerator() {
   const error = () => {
     message.error(errorMessage);
   };
+  const success = () => {
+    message.success("新增成功");
+  };
   const addTodo = function() {
     if (inputValue !== "") {
       saveTodo({ context: inputValue }).then(response => {
         dispatch(addTodoItem(response.data));
       });
       setInputValue(" ");
+      success();
     } else {
       error();
     }

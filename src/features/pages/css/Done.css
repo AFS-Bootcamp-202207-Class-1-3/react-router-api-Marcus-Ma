@@ -6,7 +6,7 @@
   min-height: 500px;
   border: 1px solid black;
   box-sizing: border-box;
-  background-color: rgb(255, 166, 0);
+  background-color: rgba(0,0,0,.85);
 }
 .done-box h1 {
   color: white;

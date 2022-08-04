@@ -4,8 +4,9 @@
   min-width: 500px;
   justify-content: center;
   margin-top: 15px;
+  margin-bottom: 20px;
 }
-.todo-generator-box .ant-input-group.ant-input-group-compact{
+.todo-generator-box .ant-input-group.ant-input-group-compact {
   display: flex;
   justify-content: center;
 }
